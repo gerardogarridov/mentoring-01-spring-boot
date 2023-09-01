@@ -1,14 +1,10 @@
 package cl.sonda.mentoring.holamundo;
 
-import org.springframework.stereotype.Service;
+import java.util.Optional;
 
-@Service
-public class HolaMundoService {
+public interface HolaMundoService {
 
-    public String holaMundo(String nombre){
-        if (nombre == null) {
-            return "Hola mundo Rest";
-        }
-        return String.format("Hola %s from rest", nombre);
-    }
+    public String holaMundo(Optional<String> nombre);
+    
 }
+

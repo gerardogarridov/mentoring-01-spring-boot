@@ -1,17 +1,19 @@
 package cl.sonda.mentoring.holamundo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CrontabClass {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CrontabClass.class);
+    @Autowired
+    private HolaMundoService holaMundoService1;
 
     @Scheduled(fixedDelay = 5000)
     public void mentodoCron(){
-        LOGGER.info("Hola mundo desde crontab");
+        holaMundoService1.holaMundo(Optional.of(this.toString() ));
     }
 }
