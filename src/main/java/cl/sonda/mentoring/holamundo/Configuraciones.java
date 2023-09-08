@@ -16,15 +16,17 @@ public class Configuraciones {
     @Bean
     @Profile("v1")
     @Scope("prototype")
-    public CommandLineRunner commandLineRunnerV1(){
-        return new CommandLineRunnerV1();
+    // inyectando por nombre de variable
+    public CommandLineRunner commandLineRunnerV1(HolaMundoService holaMundoService1){
+        return new CommandLineRunnerV1(holaMundoService1);
     }
 
     @Bean
     @Profile("v2")
     @Scope("singleton")
-    public CommandLineRunner commandLineRunnerV2(){
-        return new CommandLineRunnerV2();
+    // inyectando por nombre de variable
+    public CommandLineRunner commandLineRunnerV2(HolaMundoService holaMundoService2){
+        return new CommandLineRunnerV2(holaMundoService2);
     }
 
 }

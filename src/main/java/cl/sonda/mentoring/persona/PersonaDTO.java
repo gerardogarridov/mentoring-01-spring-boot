@@ -33,4 +33,9 @@ public class PersonaDTO {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+    public boolean isValid(){
+        return !((rut == null || rut.isEmpty()) 
+            && (nombre == null || nombre.isEmpty())
+            && (apellido == null || apellido.isEmpty()));
+    }
 }

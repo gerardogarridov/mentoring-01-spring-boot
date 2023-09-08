@@ -7,16 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CommandLineRunnerV3 implements CommandLineRunner  {
+public class CommandLineRunnerAsync implements CommandLineRunner  {
 
     @Autowired
     private ClaseAsincrona claseAsincrona;
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommandLineRunnerV3.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommandLineRunnerAsync.class);
 
     @Override
     public void run(String... args)  {
-        LOGGER.info("CommandLineRunner llamando asincrono");
+        LOGGER.info("CommandLineRunnerAsync.run >> START");
         claseAsincrona.asyncMethod();
-        LOGGER.info("CommandLineRunner fin llamado asincrono");
+        LOGGER.info("CommandLineRunnerAsync.run >> END");
     }    
 }

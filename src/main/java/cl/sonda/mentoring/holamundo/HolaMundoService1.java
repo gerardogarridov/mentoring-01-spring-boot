@@ -12,17 +12,18 @@ public class HolaMundoService1 implements HolaMundoService{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HolaMundoService1.class);
     // Spring expression language SPEL
-    @Value("${app.holamundo.default}")
+    @Value("${app.holamundo.service1.default}")
     private String defaultHola;
-    @Value("${app.holamundo.format}")
+    @Value("${app.holamundo.service1.format}")
     private String formatHola;
 
     public String holaMundo(Optional<String> nombre){
         if (!nombre.isPresent()) {
-            LOGGER.info(defaultHola);
+            LOGGER.info("HolaMundoService1.holaMundo {}", defaultHola);
             return defaultHola;
         }
-        LOGGER.info(String.format(formatHola, nombre.get()));
-        return String.format(formatHola, nombre.get());
+        final String resultado = String.format(formatHola, nombre.get());
+        LOGGER.info("HolaMundoService1.holaMundo {}", resultado);
+        return resultado;
     }
 }
